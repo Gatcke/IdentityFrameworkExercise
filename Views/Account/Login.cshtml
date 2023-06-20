@@ -1,53 +1,71 @@
 ﻿@using Learn_Identity_App.ViewModels
 @model Learn_Identity_App.ViewModels.LoginViewModel
 
-<h1 class="text-info">Login</h1>
-<form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" method="post" role="form">
-    <h4>Use the local account to log in</h4>
-    <hr />
-    <div asp-validation-summary="All" class="danger"></div>
-    <div class="form-group">
-        <label asp-for="UserName" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="UserName" class="form-control" />
-            <span asp-validation-for="UserName" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password" class="col-md-2"></label>
-        <div class="col-md-10">
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-
-        <div class="col-md-10">
-            <div class="custom-checkbox">
-                <label asp-for="RememberMe">
-                    <input asp-for="RememberMe" />
-                    @Html.DisplayNameFor(m=>m.RememberMe)
-                </label>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IdentityAppCourse2022</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/IdentityAppCourse2022.styles.css" asp-append-version="true" />
+</head>
+<body class="container">
+    <main role="main" class="pb-3">
+    <h1 class="text-info">Login</h1>
+    <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" method="post" role="form">
+        <h4>Use the local account to log in</h4>
+        <hr />
+        <div asp-validation-summary="All" class="danger"></div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
         </div>
-    </div>
-    @*    <div class="form-group">
-    <label asp-for="RoleSelected" class="col-md-2"></label>
-    <div class="col-md-10">
-    <select asp-for="RoleSelected" asp-items="@Model.RoleList" class="form-control">
-    <option disabled selected>--Select Role--</option>
-    </select>
-    </div>
-    </div>*@
-    <div class="form-group">
-        <div class="col-md-10">
-            <button type="submit" class="btn btn-success form-control">Log in</button>
+        <div class="form-group">
+            <label asp-for="Password" class="col-md-2"></label>
+            <div class="col-md-10">
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
         </div>
-    </div>
-    <p>
-        <a asp-controller="Account" asp-action="Register">Register as a new user?</a>
-    </p>
-    <p>
-        <a asp-controller="Account" asp-action="ForgotPassword">Forgot Password?</a>
-    </p>
-</form>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <div class="custom-checkbox">
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m=>m.RememberMe)
+                    </label>
+                </div>
+            </div>
+        </div>
+        @*    <div class="form-group">
+        <label asp-for="RoleSelected" class="col-md-2"></label>
+        <div class="col-md-10">
+        <select asp-for="RoleSelected" asp-items="@Model.RoleList" class="form-control">
+        <option disabled selected>--Select Role--</option>
+        </select>
+        </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-success form-control">Log in</button>
+            </div>
+        </div>
+        <p>
+            <a asp-controller="Account" asp-action="Register">Register as a new user?</a>
+        </p>
+        <p>
+            <a asp-controller="Account" asp-action="ForgotPassword">Forgot Password?</a>
+        </p>
+    </form>
+    </main>
+</body>
+</html>
